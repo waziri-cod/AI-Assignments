@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilLearn - Philosophy E-Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>PhilLearn</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link" onclick="showLogin()">Login</a>
+                <a href="#" class="nav-link" onclick="showSignup()">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Sign Up</h2>
+            <form onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name:</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <div class="hero">
+                <h1>Explore Philosophy Courses</h1>
+                <p>Discover the wisdom of great thinkers and expand your philosophical knowledge</p>
+            </div>
+            
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Courses will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Course Detail Page -->
+        <div id="courseDetailPage" class="page">
+            <button class="back-btn" onclick="showHomePage()">
+                <i class="fas fa-arrow-left"></i> Back to Courses
+            </button>
+            
+            <div class="course-header">
+                <h1 id="courseTitle"></h1>
+                <p id="courseDescription"></p>
+                <div class="course-info">
+                    <span><i class="fas fa-user"></i> <span id="courseInstructor"></span></span>
+                    <span><i class="fas fa-clock"></i> <span id="courseDuration"></span></span>
+                    <span><i class="fas fa-book"></i> <span id="courseModules"></span> modules</span>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span id="progressLabel">Course Progress</span>
+                        <span id="progressPercentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div id="completionMessage" class="completion-message hidden">
+                        <i class="fas fa-trophy"></i>
+                        <span>Congratulations! You've completed this course!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modules-section">
+                <h2>Course Modules</h2>
+                <div id="modulesList">
+                    <!-- Modules will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
